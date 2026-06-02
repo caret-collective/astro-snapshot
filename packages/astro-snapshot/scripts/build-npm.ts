@@ -7,7 +7,7 @@ const AUTHOR = {
 	domain: 'johng.io',
 } as const;
 const PACKAGE_NAME = 'astro-snapshot' as const;
-const REPO_URL = `https://github.com/${AUTHOR.username}/${PACKAGE_NAME}` as const;
+const REPO_URL = `https://github.com/caret-collective/${PACKAGE_NAME}` as const;
 const dir = {
 	src: './src',
 	out: './npm',

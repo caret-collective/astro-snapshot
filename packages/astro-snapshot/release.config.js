@@ -3,7 +3,7 @@
  */
 export default {
 	branches: ['main'],
-	repositoryUrl: 'https://github.com/twocaretcat/astro-snapshot',
+	repositoryUrl: 'https://github.com/caret-collective/astro-snapshot',
 	tagFormat: 'v${version}',
 	plugins: [
 		[

@@ -13,7 +13,7 @@ export const collections = {
 			{
 				provider: 'github',
 				base: 'changelog',
-				owner: 'twocaretcat',
+				owner: 'caret-collective',
 				repo: 'astro-snapshot',
 				pagefind: true,
 			},

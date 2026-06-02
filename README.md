@@ -4,13 +4,13 @@
 <h1 class="projectName">Astro Snapshot</h1>
 <p class="projectBadges">
 	<img src="https://johng.io/badges/category/Plugin.svg" alt="Project category" title="Project category">
-	<img src="https://img.shields.io/github/languages/top/twocaretcat/astro-snapshot.svg" alt="Language" title="Language">
-	<img src="https://img.shields.io/github/repo-size/twocaretcat/astro-snapshot.svg" alt="Repository size" title="Repository size">
-	<a href="LICENSE"><img src="https://img.shields.io/github/license/twocaretcat/astro-snapshot.svg" alt="Project license" title="Project license"/></a>
+	<img src="https://img.shields.io/github/languages/top/caret-collective/astro-snapshot.svg" alt="Language" title="Language">
+	<img src="https://img.shields.io/github/repo-size/caret-collective/astro-snapshot.svg" alt="Repository size" title="Repository size">
+	<a href="LICENSE"><img src="https://img.shields.io/github/license/caret-collective/astro-snapshot.svg" alt="Project license" title="Project license"/></a>
 	<a href="https://github.com/semantic-release/semantic-release"><img src="https://img.shields.io/badge/semantic--release-conventionalcommits-e10079?logo=semantic-release" alt="Semantic Release" title="Semantic Release"/></a>
 </p>
 <p class="projectBadges status">
-	<a href="https://github.com/twocaretcat/astro-snapshot/releases/latest"><img src="https://img.shields.io/github/v/release/twocaretcat/astro-snapshot.svg" alt="Latest release" title="Latest release"/></a>
+	<a href="https://github.com/caret-collective/astro-snapshot/releases/latest"><img src="https://img.shields.io/github/v/release/caret-collective/astro-snapshot.svg" alt="Latest release" title="Latest release"/></a>
 	<a href="https://jsr.io/@twocaretcat/astro-snapshot"><img src="https://jsr.io/badges/@twocaretcat/astro-snapshot" alt="View package on JSR" title="View package on JSR" /></a>
 	<a href="https://jsr.io/@twocaretcat/astro-snapshot"><img src="https://jsr.io/badges/@twocaretcat/astro-snapshot/score" alt="View package on JSR" title="View package on JSR" /></a>
 	<a href="https://www.npmjs.com/package/@twocaretcat/astro-snapshot"><img src="https://img.shields.io/npm/v/@twocaretcat/astro-snapshot" alt="View package on npmjs" title="View package on npmjs"/></a>
@@ -67,7 +67,7 @@ For installation and usage instructions, see the [docs](https://astro-snapshot.j
 
 Need help? Refer to the [troubleshooting](https://astro-snapshot.johng.io/guide/troubleshooting/) page in the docs for a
 list of common issues and their solutions, or see the
-[support resources](https://github.com/twocaretcat/.github/blob/main/docs/SUPPORT.md) for information on how to:
+[support resources](https://github.com/caret-collective/.github/blob/main/docs/SUPPORT.md) for information on how to:
 
 - request features
 - report bugs
@@ -119,4 +119,4 @@ Thanks for the support!
 [Open Graph]: https://ogp.me/
 [Satori]: https://github.com/vercel/satori
 [Puppeteer]: https://pptr.dev/
-[Gatsby Plugin: Component to Image]: https://github.com/twocaretcat/gatsby-plugin-component-to-image
+[Gatsby Plugin: Component to Image]: https://github.com/caret-collective/gatsby-plugin-component-to-image

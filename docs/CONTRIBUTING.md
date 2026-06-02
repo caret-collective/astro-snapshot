@@ -5,7 +5,7 @@ contributing to the project.
 
 ## Reporting Issues
 
-You can [create an issue](https://github.com/twocaretcat/astro-snapshot/issues) to request a new feature or report a
+You can [create an issue](https://github.com/caret-collective/astro-snapshot/issues) to request a new feature or report a
 problem with the project. Make sure a similar issue doesn't already exist.
 
 ### Feature Requests
@@ -352,6 +352,6 @@ By contributing to this project, you agree that your contributions will be licen
 [license](../LICENSE).
 
 [dnt]: https://github.com/denoland/dnt
-[discussion]: https://github.com/twocaretcat/astro-snapshot/discussions
+[discussion]: https://github.com/caret-collective/astro-snapshot/discussions
 [deno.json]: ../packages/astro-snapshot/deno.json
 [Starlight]: https://starlight.astro.build/

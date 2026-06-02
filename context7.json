@@ -1,6 +1,6 @@
 {
 	"$schema": "https://context7.com/schema/context7.json",
-	"url": "https://context7.com/twocaretcat/astro-snapshot",
+	"url": "https://context7.com/caret-collective/astro-snapshot",
 	"public_key": "pk_GLBqOI7G5OypvlKYVTdYF",
 	"projectTitle": "Astro Snapshot",
 	"description": "An Astro integration for generating screenshots of your pages automatically at build time. Perfect for creating social images, content previews, dynamic icons, and more!"

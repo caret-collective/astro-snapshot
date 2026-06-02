@@ -47,7 +47,7 @@ export default defineConfig({
 				{
 					icon: 'github',
 					label: 'GitHub',
-					href: 'https://github.com/twocaretcat/astro-snapshot',
+					href: 'https://github.com/caret-collective/astro-snapshot',
 				},
 				{
 					icon: 'jsr',
@@ -197,7 +197,7 @@ export default defineConfig({
 				'./src/styles/global.css',
 			],
 			editLink: {
-				baseUrl: 'https://github.com/twocaretcat/astro-snapshot/edit/main/docs/site',
+				baseUrl: 'https://github.com/caret-collective/astro-snapshot/edit/main/docs/site',
 			},
 		}),
 	],
