@@ -1,2 +1,5 @@
 node_modules/
 packages/astro-snapshot/npm/
+tests/fixtures/*/.astro/
+tests/fixtures/*/dist/
+tests/fixtures/*/output/

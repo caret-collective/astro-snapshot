@@ -1,7 +1,7 @@
 {
 	"workspace": [
 		"./packages/astro-snapshot",
-		"./tests/fixture",
+		"./tests/fixtures/astro-6",
 		"./docs/site"
 	],
 	"exclude": [
@@ -14,7 +14,7 @@
 		},
 		"test": {
 			"description": "Run all integration tests.",
-			"command": "deno test --allow-run=deno --allow-read=tests/fixture/ --allow-write=tests/fixture/ --allow-env=npm_package_config_libvips --allow-ffi=node_modules/.deno/ --allow-sys=cpus,networkInterfaces,hostname"
+			"command": "deno test --allow-run=deno --allow-read=tests/fixtures/ --allow-write=tests/fixtures/ --allow-env=npm_package_config_libvips --allow-ffi=node_modules/.deno/ --allow-sys=cpus,networkInterfaces,hostname"
 		}
 	},
 	"fmt": {

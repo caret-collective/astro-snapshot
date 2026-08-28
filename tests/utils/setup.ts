@@ -7,7 +7,7 @@ import { info } from 'node:console';
 import { mkdir } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import { highlight } from './text.ts';
-import { ABS_FIXTURE_PATH } from '../constants.ts';
+import type { AstroFixture } from '../constants.ts';
 import type { BuildResult } from '../types.ts';
 
 /**
@@ -52,13 +52,14 @@ export async function seedFile(absolutePath: string) {
  * can assert on both successful and failing builds.
  *
  * @param scenario - The scenario key to pass as the `SCENARIO` environment variable.
+ * @param fixture - Fixture project to run the build in.
  */
-export async function runAstroBuildWithScenario(scenario: string) {
-	info(highlight`🔨 Running \`astro build\` for scenario ${scenario}...`);
+export async function runAstroBuildWithScenario(scenario: string, fixture: AstroFixture) {
+	info(highlight`🔨 Running \`astro build\` for ${fixture.name} scenario ${scenario}...`);
 
 	const { success, stdout, stderr } = await new Deno.Command(Deno.execPath(), {
 		args: ['run', '-A', 'astro', 'build'],
-		cwd: ABS_FIXTURE_PATH,
+		cwd: fixture.absPath,
 		stdout: 'piped',
 		stderr: 'piped',
 		// Deno merges this with the inherited parent environment
