@@ -17,25 +17,6 @@ const ASTRO_VERSION = {
 	current: rootDeno.imports.astro.split('@')[1],
 } as const;
 
-/**
- * Removes the `astro` peer dependency from the built `package.json`.
- *
- * This post-build patch removes the generated
- * `astro` entry from `dependencies` so that consumers are not forced to
- * install a specific version. Instead, they supply their own via the
- * declared `peerDependencies` range.
- *
- * @returns A promise that resolves when the patched `package.json` has been written to disk.
- */
-async function patchAstroVersion() {
-	const pkgPath = `${dir.out}/package.json`;
-	const pkg = JSON.parse(await Deno.readTextFile(pkgPath));
-
-	delete pkg.dependencies.astro;
-
-	return Deno.writeTextFile(pkgPath, JSON.stringify(pkg, null, '\t') + '\n');
-}
-
 await emptyDir(dir.out);
 await build({
 	entryPoints: [
@@ -51,6 +32,13 @@ await build({
 	},
 	shims: {},
 	test: false,
+	mappings: {
+		[`npm:astro@${ASTRO_VERSION.current}`]: {
+			name: 'astro',
+			version: `${ASTRO_VERSION.previous} || ${ASTRO_VERSION.current}`,
+			peerDependency: true,
+		},
+	},
 	package: {
 		name: packageDeno.name,
 		version: Deno.args[0] ?? packageDeno.version,
@@ -102,15 +90,11 @@ await build({
 				url: 'https://publishers.basicattentiontoken.org/en/c/johng',
 			},
 		],
-		peerDependencies: {
-			astro: `${ASTRO_VERSION.previous} || ${ASTRO_VERSION.current}`,
-		},
 	},
 	async postBuild() {
 		await Promise.all([
 			Deno.copyFile('../../LICENSE', `${dir.out}/LICENSE`),
 			Deno.copyFile('../../README.md', `${dir.out}/README.md`),
-			patchAstroVersion(),
 		]);
 	},
 });
