@@ -14,6 +14,10 @@ export interface AstroFixture {
  */
 export const ASTRO_FIXTURES = [
 	{
+		name: 'Astro 5',
+		absPath: resolve(import.meta.dirname!, 'fixtures/astro-5'),
+	},
+	{
 		name: 'Astro 6',
 		absPath: resolve(import.meta.dirname!, 'fixtures/astro-6'),
 	},

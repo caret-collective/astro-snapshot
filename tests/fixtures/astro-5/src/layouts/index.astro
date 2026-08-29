@@ -1,0 +1,31 @@
+---
+import type { Color } from '../../../../types.ts';
+
+interface Props {
+	title: string;
+	color: Color;
+}
+
+const { title, color } = Astro.props;
+
+const bg = `rgb(${Object.values(color).join()})` as const;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<h1>{new Date().toISOString()}</h1>
+		<slot />
+	</body>
+</html>
+
+<style define:vars={{ bg }}>
+	body {
+		background: var(--bg);
+	}
+</style>

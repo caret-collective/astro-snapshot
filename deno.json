@@ -1,6 +1,7 @@
 {
 	"workspace": [
 		"./packages/astro-snapshot",
+		"./tests/fixtures/astro-5",
 		"./tests/fixtures/astro-6",
 		"./docs/site"
 	],
