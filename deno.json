@@ -3,6 +3,7 @@
 		"./packages/astro-snapshot",
 		"./tests/fixtures/astro-5",
 		"./tests/fixtures/astro-6",
+		"./tests/fixtures/astro-7",
 		"./docs/site"
 	],
 	"exclude": [

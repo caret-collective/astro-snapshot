@@ -1,5 +1,5 @@
 /**
- * Unified Astro config for all integration tests.
+ * Shared scenario configuration for all integration test fixtures.
  *
  * The active scenario is selected via the `SCENARIO` environment variable.
  *
@@ -9,15 +9,11 @@
  *
  * @module
  */
-import { defineConfig } from 'astro/config';
 import process from 'node:process';
-import type { Config } from '../../packages/astro-snapshot/src/index.ts';
-import snapshot from '../../packages/astro-snapshot/src/index.ts';
+import type { Config, SnapshotIntegrationConfig } from '../../packages/astro-snapshot/src/index.ts';
 import type { IsolatedTestCase, TestCase } from '../types.ts';
 import { ISOLATED_TEST_CASE_MAP } from '../test-cases/isolated/index.ts';
 import { SHARED_TEST_CASE_MAP } from '../test-cases/shared/index.ts';
-
-type SnapshotConfig = Parameters<typeof snapshot>[0];
 
 /**
  * Builds the `pages` map for the shared scenario by grouping all shared test
@@ -61,8 +57,8 @@ function buildIsolatedPages(testCase: IsolatedTestCase): Config['pages'] {
 function buildScenarios(
 	sharedTestCases: Record<string, TestCase>,
 	isolatedTestCases: Record<string, IsolatedTestCase>,
-): Record<string, SnapshotConfig> {
-	const scenarios: Record<string, SnapshotConfig> = {
+): Record<string, SnapshotIntegrationConfig> {
+	const scenarios: Record<string, SnapshotIntegrationConfig> = {
 		shared: {
 			pages: buildSharedPages(sharedTestCases),
 		},
@@ -81,10 +77,9 @@ function buildScenarios(
 /**
  * Resolves and validates the active scenario from the SCENARIO environment
  * variable, throwing a descriptive error if it is missing or unrecognized.
- *
- * @param scenarios - The full map of scenario keys to integration configs.
  */
-function resolveScenario(scenarios: Record<string, SnapshotConfig>): SnapshotConfig {
+export function resolveScenario(): SnapshotIntegrationConfig {
+	const scenarios = buildScenarios(SHARED_TEST_CASE_MAP, ISOLATED_TEST_CASE_MAP);
 	const scenario = process.env.SCENARIO;
 
 	if (!scenario || !(scenario in scenarios)) {
@@ -95,13 +90,3 @@ function resolveScenario(scenarios: Record<string, SnapshotConfig>): SnapshotCon
 
 	return scenarios[scenario];
 }
-
-const SCENARIOS = buildScenarios(SHARED_TEST_CASE_MAP, ISOLATED_TEST_CASE_MAP);
-
-// https://astro.build/config
-export default defineConfig({
-	srcDir: '../shared',
-	integrations: [
-		snapshot(resolveScenario(SCENARIOS)),
-	],
-});

@@ -21,6 +21,10 @@ export const ASTRO_FIXTURES = [
 		name: 'Astro 6',
 		absPath: resolve(import.meta.dirname!, 'fixtures/astro-6'),
 	},
+	{
+		name: 'Astro 7',
+		absPath: resolve(import.meta.dirname!, 'fixtures/astro-7'),
+	},
 ] as const satisfies readonly AstroFixture[];
 
 /**
