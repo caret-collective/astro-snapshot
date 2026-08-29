@@ -100,6 +100,7 @@ astro-snapshot/
 │   ├── 📂 fixtures/
 │   │   ├── 📂 astro-5/               # Minimal Astro 5 site used as a test fixture (workspace member)
 │   │   ├── 📂 astro-6/               # Minimal Astro 6 site used as a test fixture (workspace member)
+│   │   ├── 📂 shared/                # Shared fixture pages and layouts
 │   │   └── 📄 astro.config.ts        # Shared fixture config
 │   ├── 📂 test-cases/
 │   │   ├── 📂 shared/                # Test case definitions for the shared build

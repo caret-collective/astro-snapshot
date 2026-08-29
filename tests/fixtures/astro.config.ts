@@ -100,6 +100,7 @@ const SCENARIOS = buildScenarios(SHARED_TEST_CASE_MAP, ISOLATED_TEST_CASE_MAP);
 
 // https://astro.build/config
 export default defineConfig({
+	srcDir: '../shared',
 	integrations: [
 		snapshot(resolveScenario(SCENARIOS)),
 	],
