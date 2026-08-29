@@ -2,9 +2,26 @@ import { join, resolve } from 'node:path';
 import type { Color } from './types.ts';
 
 /**
- * Absolute path to the fixture project root.
+ * Astro fixture project.
  */
-export const ABS_FIXTURE_PATH = resolve(import.meta.dirname!, 'fixture');
+export interface AstroFixture {
+	name: string;
+	absPath: string;
+}
+
+/**
+ * Fixture projects to run the integration tests against.
+ */
+export const ASTRO_FIXTURES = [
+	{
+		name: 'Astro 5',
+		absPath: resolve(import.meta.dirname!, 'fixtures/astro-5'),
+	},
+	{
+		name: 'Astro 6',
+		absPath: resolve(import.meta.dirname!, 'fixtures/astro-6'),
+	},
+] as const satisfies readonly AstroFixture[];
 
 /**
  * Directory (relative to the fixture project root) where all test outputs are organized under.
