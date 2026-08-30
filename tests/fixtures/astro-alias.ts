@@ -143,7 +143,7 @@ export function buildAstroAliases(astroPackageDir: string): Alias[] {
 
 		aliases.push({
 			find,
-			replacement: join(astroPackageDir, replacement.replace(/^\.\//, '').replace('*', '$1')),
+			replacement: join(astroPackageDir, replacement.replace(/^\.\//, '').replaceAll('*', '$1')),
 		});
 	}
 
