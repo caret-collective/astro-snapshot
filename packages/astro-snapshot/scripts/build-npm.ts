@@ -8,24 +8,21 @@ const AUTHOR = {
 } as const;
 const PACKAGE_NAME = 'astro-snapshot' as const;
 const REPO_URL = `https://github.com/caret-collective/${PACKAGE_NAME}` as const;
-const dir = {
+const DIR = {
 	src: './src',
 	out: './npm',
 } as const;
-const ASTRO_VERSION = {
-	previous: '^5.18.1',
-	current: rootDeno.imports.astro.split('@')[1],
-} as const;
+const currentAstroVersion = rootDeno.imports.astro.split('@')[1];
 
-await emptyDir(dir.out);
+await emptyDir(DIR.out);
 await build({
 	entryPoints: [
 		{
 			name: '.',
-			path: `${dir.src}/index.ts`,
+			path: `${DIR.src}/index.ts`,
 		},
 	],
-	outDir: dir.out,
+	outDir: DIR.out,
 	compilerOptions: {
 		lib: ['ES2022'],
 		target: 'ES2022',
@@ -33,9 +30,9 @@ await build({
 	shims: {},
 	test: false,
 	mappings: {
-		[`npm:astro@${ASTRO_VERSION.current}`]: {
+		[`npm:astro@${currentAstroVersion}`]: {
 			name: 'astro',
-			version: `${ASTRO_VERSION.previous} || ${ASTRO_VERSION.current}`,
+			version: ['^5.18.1', '^6.1.7', currentAstroVersion].join(' || '),
 			peerDependency: true,
 		},
 	},
@@ -93,8 +90,8 @@ await build({
 	},
 	async postBuild() {
 		await Promise.all([
-			Deno.copyFile('../../LICENSE', `${dir.out}/LICENSE`),
-			Deno.copyFile('../../README.md', `${dir.out}/README.md`),
+			Deno.copyFile('../../LICENSE', `${DIR.out}/LICENSE`),
+			Deno.copyFile('../../README.md', `${DIR.out}/README.md`),
 		]);
 	},
 });

@@ -98,15 +98,11 @@ export default defineConfig({
 								items: [
 									{
 										label: 'Getting Started',
-										autogenerate: {
-											directory: 'guide/getting-started',
-										},
+										items: [{ autogenerate: { directory: 'guide/getting-started' } }],
 									},
 									{
 										label: 'Recipes',
-										autogenerate: {
-											directory: 'guide/recipes',
-										},
+										items: [{ autogenerate: { directory: 'guide/recipes' } }],
 									},
 									{
 										label: 'Troubleshooting',
@@ -129,9 +125,7 @@ export default defineConfig({
 						items: [
 							{
 								label: 'API Reference',
-								autogenerate: {
-									directory: 'api-reference',
-								},
+								items: [{ autogenerate: { directory: 'api-reference' } }],
 							},
 						],
 					},
@@ -174,9 +168,7 @@ export default defineConfig({
 						items: [
 							{
 								label: 'Resources',
-								autogenerate: {
-									directory: 'resources',
-								},
+								items: [{ autogenerate: { directory: 'resources' } }],
 							},
 						],
 					},

@@ -52,11 +52,12 @@ This repository is a **monorepo** (i.e. a single repository that contains multip
 `deno install` at the root installs dependencies for all projects at once, and tools like `deno fmt` and `deno lint`
 apply consistently across the entire codebase.
 
-There are four workspace members:
+There are several workspace members:
 
 - **`packages/astro-snapshot`:** the `@twocaretcat/astro-snapshot` library itself
 - **`tests/fixtures/astro-5`:** a minimal Astro 5 site used as an integration test fixture
 - **`tests/fixtures/astro-6`:** a minimal Astro 6 site used as an integration test fixture
+- **`tests/fixtures/astro-7`:** a minimal Astro 7 site used as an integration test fixture
 - **`docs/site`:** the documentation site built with [Starlight]
 
 Most `deno` commands can be run from the repo root to apply across all members, or from within a specific member's
@@ -100,8 +101,10 @@ astro-snapshot/
 │   ├── 📂 fixtures/
 │   │   ├── 📂 astro-5/               # Minimal Astro 5 site used as a test fixture (workspace member)
 │   │   ├── 📂 astro-6/               # Minimal Astro 6 site used as a test fixture (workspace member)
-│   │   ├── 📂 shared/                # Shared fixture pages and layouts
-│   │   └── 📄 astro.config.ts        # Shared fixture config
+│   │   ├── 📂 astro-7/               # Minimal Astro 7 site used as a test fixture (workspace member)
+│   │   ├── 📂 shared/                # Shared fixture pages and layout
+│   │   ├── 📄 astro-alias.ts         # Fixture Astro package alias helpers
+│   │   └── 📄 scenarios.ts           # Shared fixture scenario config
 │   ├── 📂 test-cases/
 │   │   ├── 📂 shared/                # Test case definitions for the shared build
 │   │   └── 📂 isolated/              # Test case definitions for isolated builds

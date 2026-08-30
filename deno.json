@@ -3,6 +3,7 @@
 		"./packages/astro-snapshot",
 		"./tests/fixtures/astro-5",
 		"./tests/fixtures/astro-6",
+		"./tests/fixtures/astro-7",
 		"./docs/site"
 	],
 	"exclude": [
@@ -50,7 +51,7 @@
 	],
 	"imports": {
 		"@std/testing": "jsr:@std/testing@^1.0.17",
-		"astro": "npm:astro@^6.1.7",
+		"astro": "npm:astro@^7.2.9",
 		"sharp": "npm:sharp@^0.34.5"
 	}
 }
