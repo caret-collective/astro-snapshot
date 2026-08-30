@@ -1,0 +1,8 @@
+{
+	"exclude": [
+		"dist/"
+	],
+	"imports": {
+		"astro": "npm:astro@^7.2.9"
+	}
+}

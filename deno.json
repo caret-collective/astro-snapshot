@@ -1,7 +1,9 @@
 {
 	"workspace": [
 		"./packages/astro-snapshot",
-		"./tests/fixture",
+		"./tests/fixtures/astro-5",
+		"./tests/fixtures/astro-6",
+		"./tests/fixtures/astro-7",
 		"./docs/site"
 	],
 	"exclude": [
@@ -14,7 +16,7 @@
 		},
 		"test": {
 			"description": "Run all integration tests.",
-			"command": "deno test --allow-run=deno --allow-read=tests/fixture/ --allow-write=tests/fixture/ --allow-env=npm_package_config_libvips --allow-ffi=node_modules/.deno/ --allow-sys=cpus,networkInterfaces,hostname"
+			"command": "deno test --allow-run=deno --allow-read=tests/fixtures/ --allow-write=tests/fixtures/ --allow-env=npm_package_config_libvips --allow-ffi=node_modules/.deno/ --allow-sys=cpus,networkInterfaces,hostname"
 		}
 	},
 	"fmt": {
@@ -48,8 +50,8 @@
 		"fmt-component"
 	],
 	"imports": {
-		"@std/testing": "jsr:@std/testing@^1.0.17",
-		"astro": "npm:astro@^6.1.7",
+		"@std/testing": "jsr:@std/testing@^1.0.20",
+		"astro": "npm:astro@^7.2.9",
 		"sharp": "npm:sharp@^0.34.5"
 	}
 }

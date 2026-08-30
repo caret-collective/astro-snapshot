@@ -8,49 +8,35 @@ const AUTHOR = {
 } as const;
 const PACKAGE_NAME = 'astro-snapshot' as const;
 const REPO_URL = `https://github.com/caret-collective/${PACKAGE_NAME}` as const;
-const dir = {
+const DIR = {
 	src: './src',
 	out: './npm',
 } as const;
-const ASTRO_VERSION = {
-	previous: '^5.18.1',
-	current: rootDeno.imports.astro.split('@')[1],
-} as const;
+const currentAstroVersion = rootDeno.imports.astro.split('@')[1];
+const nodeTypesVersion = packageDeno.imports['@types/node'].replace(/^npm:@types\/node@/, '');
 
-/**
- * Removes the `astro` peer dependency from the built `package.json`.
- *
- * This post-build patch removes the generated
- * `astro` entry from `dependencies` so that consumers are not forced to
- * install a specific version. Instead, they supply their own via the
- * declared `peerDependencies` range.
- *
- * @returns A promise that resolves when the patched `package.json` has been written to disk.
- */
-async function patchAstroVersion() {
-	const pkgPath = `${dir.out}/package.json`;
-	const pkg = JSON.parse(await Deno.readTextFile(pkgPath));
-
-	delete pkg.dependencies.astro;
-
-	return Deno.writeTextFile(pkgPath, JSON.stringify(pkg, null, '\t') + '\n');
-}
-
-await emptyDir(dir.out);
+await emptyDir(DIR.out);
 await build({
 	entryPoints: [
 		{
 			name: '.',
-			path: `${dir.src}/index.ts`,
+			path: `${DIR.src}/index.ts`,
 		},
 	],
-	outDir: dir.out,
+	outDir: DIR.out,
 	compilerOptions: {
 		lib: ['ES2022'],
 		target: 'ES2022',
 	},
 	shims: {},
 	test: false,
+	mappings: {
+		[`npm:astro@${currentAstroVersion}`]: {
+			name: 'astro',
+			version: ['^5.18.1', '^6.1.7', currentAstroVersion].join(' || '),
+			peerDependency: true,
+		},
+	},
 	package: {
 		name: packageDeno.name,
 		version: Deno.args[0] ?? packageDeno.version,
@@ -102,15 +88,14 @@ await build({
 				url: 'https://publishers.basicattentiontoken.org/en/c/johng',
 			},
 		],
-		peerDependencies: {
-			astro: `${ASTRO_VERSION.previous} || ${ASTRO_VERSION.current}`,
+		devDependencies: {
+			'@types/node': nodeTypesVersion,
 		},
 	},
 	async postBuild() {
 		await Promise.all([
-			Deno.copyFile('../../LICENSE', `${dir.out}/LICENSE`),
-			Deno.copyFile('../../README.md', `${dir.out}/README.md`),
-			patchAstroVersion(),
+			Deno.copyFile('../../LICENSE', `${DIR.out}/LICENSE`),
+			Deno.copyFile('../../README.md', `${DIR.out}/README.md`),
 		]);
 	},
 });

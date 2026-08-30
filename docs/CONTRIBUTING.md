@@ -5,8 +5,8 @@ contributing to the project.
 
 ## Reporting Issues
 
-You can [create an issue](https://github.com/caret-collective/astro-snapshot/issues) to request a new feature or report a
-problem with the project. Make sure a similar issue doesn't already exist.
+You can [create an issue](https://github.com/caret-collective/astro-snapshot/issues) to request a new feature or report
+a problem with the project. Make sure a similar issue doesn't already exist.
 
 ### Feature Requests
 
@@ -52,10 +52,12 @@ This repository is a **monorepo** (i.e. a single repository that contains multip
 `deno install` at the root installs dependencies for all projects at once, and tools like `deno fmt` and `deno lint`
 apply consistently across the entire codebase.
 
-There are three workspace members:
+There are several workspace members:
 
 - **`packages/astro-snapshot`:** the `@twocaretcat/astro-snapshot` library itself
-- **`tests/fixture`:** a minimal Astro site used as an integration test fixture
+- **`tests/fixtures/astro-5`:** a minimal Astro 5 site used as an integration test fixture
+- **`tests/fixtures/astro-6`:** a minimal Astro 6 site used as an integration test fixture
+- **`tests/fixtures/astro-7`:** a minimal Astro 7 site used as an integration test fixture
 - **`docs/site`:** the documentation site built with [Starlight]
 
 Most `deno` commands can be run from the repo root to apply across all members, or from within a specific member's
@@ -96,9 +98,13 @@ astro-snapshot/
 │       └── 📄 tsconfig.json          # TypeScript config for TypeDoc (API reference generation)
 │
 ├── 📂 tests/
-│   ├── 📂 fixture/                   # Minimal Astro site used as a test fixture (workspace member)
-│   │   ├── 📂 src/
-│   │   └── 📄 deno.json
+│   ├── 📂 fixtures/
+│   │   ├── 📂 astro-5/               # Minimal Astro 5 site used as a test fixture (workspace member)
+│   │   ├── 📂 astro-6/               # Minimal Astro 6 site used as a test fixture (workspace member)
+│   │   ├── 📂 astro-7/               # Minimal Astro 7 site used as a test fixture (workspace member)
+│   │   ├── 📂 shared/                # Shared fixture pages and layout
+│   │   ├── 📄 astro-alias.ts         # Fixture Astro package alias helpers
+│   │   └── 📄 scenarios.ts           # Shared fixture scenario config
 │   ├── 📂 test-cases/
 │   │   ├── 📂 shared/                # Test case definitions for the shared build
 │   │   └── 📂 isolated/              # Test case definitions for isolated builds
@@ -198,8 +204,8 @@ deno lint
 ## Testing
 
 We use Deno's built-in test runner for integration tests. The tests live in the [tests/](../tests/) directory and work
-by building the fixture project (a minimal Astro site at `tests/fixture/`) with the integration under test, then
-asserting on the generated screenshots using [Sharp](https://sharp.pixelplumbing.com/).
+by building each fixture project in `tests/fixtures/` with the integration under test, then asserting on the generated
+screenshots using [Sharp](https://sharp.pixelplumbing.com/).
 
 We use two files to run tests based on the setup they require:
 
@@ -209,8 +215,8 @@ We use two files to run tests based on the setup they require:
   need specific integration-level config (such as `defaults.overwrite`) or controlled filesystem state. Each test case
   runs as its own build. These test cases live in [tests/test-cases/isolated/](../tests//test-cases/isolated/).
 
-The [tests/fixture/astro.config.ts](../tests/fixture/astro.config.ts) file automatically loads the appropriate test case
-for the respective build based on the `SCENARIO` environment variable that is set by the test runner.
+The [tests/fixtures/astro.config.ts](../tests/fixtures/astro.config.ts) file automatically loads the appropriate test
+case for the respective build based on the `SCENARIO` environment variable that is set by the test runner.
 
 > [!IMPORTANT]
 > These tasks should be run from the project root.
@@ -280,7 +286,6 @@ workspace member.
 1. Pushes to the `main` branch will trigger the workflow, where we run Semantic Release
 2. Commits will trigger new releases based on their type. We use the
    [conventionalcommits](https://www.conventionalcommits.org/en/v1.0.0/) preset. For example:
-
    - `feat!:` - Major version bump
    - `feat:` - Minor version bump
    - `fix:` - Patch version bump

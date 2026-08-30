@@ -39,11 +39,12 @@
 		]
 	},
 	"imports": {
-		"@deno/dnt": "jsr:@deno/dnt@^0.42.3",
+		"@deno/dnt": "jsr:@deno/dnt@^0.43.2",
 		"@semantic-release/exec": "npm:@semantic-release/exec@^7.1.0",
 		"@semantic-release/git": "npm:@semantic-release/git@^10.0.1",
-		"conventional-changelog-conventionalcommits": "npm:conventional-changelog-conventionalcommits@^9.3.0",
-		"puppeteer": "npm:puppeteer@^24.39.1",
+		"@types/node": "npm:@types/node@^26.4.0",
+		"conventional-changelog-conventionalcommits": "npm:conventional-changelog-conventionalcommits@^9.3.1",
+		"puppeteer": "npm:puppeteer@^25.9.0",
 		"semantic-release": "npm:semantic-release@^24.2.9",
 		"sirv": "npm:sirv@^3.0.2"
 	}
