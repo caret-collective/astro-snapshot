@@ -3,28 +3,29 @@
 		"dist/"
 	],
 	"tasks": {
-		"dev": "astro dev",
+		"dev": "deno run -A --unstable-bare-node-builtins astro dev",
 		// Unstable flag is required because Typedoc uses unprefixed imports for Node builtins
 		"build": "deno run -A --unstable-bare-node-builtins astro build",
-		"serve": "astro preview"
+		"serve": "deno run -A --unstable-bare-node-builtins astro preview"
 	},
 	"imports": {
-		"@astrojs/starlight": "npm:@astrojs/starlight@^0.38.1",
+		"@astrojs/starlight": "npm:@astrojs/starlight@^0.41.10",
 		"@fontsource/dela-gothic-one": "npm:@fontsource/dela-gothic-one@^5.2.7",
+		"astro": "npm:astro@^7.2.9",
 		"remark-github-blockquote-alert": "npm:remark-github-blockquote-alert@^2.1.0",
 		"sharp": "npm:sharp@^0.34.5",
-		"starlight-changelogs": "npm:starlight-changelogs@^0.5.0",
+		"starlight-changelogs": "npm:starlight-changelogs@^0.6.0",
 		"starlight-contextual-menu": "npm:starlight-contextual-menu@^0.1.5",
-		"starlight-github-alerts": "npm:starlight-github-alerts@^0.2.0",
-		"starlight-links-validator": "npm:starlight-links-validator@^0.20.1",
-		"starlight-llms-txt": "npm:starlight-llms-txt@^0.8.0",
+		"starlight-github-alerts": "npm:starlight-github-alerts@^0.4.0",
+		"starlight-links-validator": "npm:starlight-links-validator@^0.25.3",
+		"starlight-llms-txt": "npm:starlight-llms-txt@^0.11.0",
 		"starlight-markdown": "npm:starlight-markdown@^0.1.5",
-		"starlight-sidebar-topics": "npm:starlight-sidebar-topics@^0.7.1",
-		"starlight-theme-nova": "npm:starlight-theme-nova@^0.11.7",
-		"starlight-typedoc": "npm:starlight-typedoc@^0.21.5",
+		"starlight-sidebar-topics": "npm:starlight-sidebar-topics@^0.8.0",
+		"starlight-theme-nova": "npm:starlight-theme-nova@^0.12.2",
+		"starlight-typedoc": "npm:starlight-typedoc@^0.23.1",
 		"typedoc-plugin-frontmatter": "npm:typedoc-plugin-frontmatter@^1.3.1",
-		"typedoc-plugin-markdown": "npm:typedoc-plugin-markdown@^4.11.0",
+		"typedoc-plugin-markdown": "npm:typedoc-plugin-markdown@^4.13.0",
 		"typedoc-plugin-rename-defaults": "npm:typedoc-plugin-rename-defaults@^0.7.3",
-		"typedoc": "npm:typedoc@^0.28.17"
+		"typedoc": "npm:typedoc@^0.28.20"
 	}
 }
