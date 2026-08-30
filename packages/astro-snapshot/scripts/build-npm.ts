@@ -13,6 +13,7 @@ const DIR = {
 	out: './npm',
 } as const;
 const currentAstroVersion = rootDeno.imports.astro.split('@')[1];
+const nodeTypesVersion = packageDeno.imports['@types/node'].replace(/^npm:@types\/node@/, '');
 
 await emptyDir(DIR.out);
 await build({
@@ -87,6 +88,9 @@ await build({
 				url: 'https://publishers.basicattentiontoken.org/en/c/johng',
 			},
 		],
+		devDependencies: {
+			'@types/node': nodeTypesVersion,
+		},
 	},
 	async postBuild() {
 		await Promise.all([
