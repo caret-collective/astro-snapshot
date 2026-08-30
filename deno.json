@@ -50,7 +50,7 @@
 		"fmt-component"
 	],
 	"imports": {
-		"@std/testing": "jsr:@std/testing@^1.0.17",
+		"@std/testing": "jsr:@std/testing@^1.0.20",
 		"astro": "npm:astro@^7.2.9",
 		"sharp": "npm:sharp@^0.34.5"
 	}
