@@ -18,10 +18,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 📂 Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: 🛠️ Setup
-        uses: ./.github/actions/setup
+        uses: $/.github/actions/setup
 
       - name: 🧹 Lint
         run: deno lint
@@ -31,10 +33,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 📂 Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: 🛠️ Setup
-        uses: ./.github/actions/setup
+        uses: $/.github/actions/setup
 
       # Required for Puppeteer
       - name: 🛡️ Disable AppArmor
@@ -49,10 +53,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 📂 Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
 
       - name: 🛠️ Setup
-        uses: ./.github/actions/setup
+        uses: $/.github/actions/setup
 
       - name: 📦 Publish (dry run)
         working-directory: packages/astro-snapshot
@@ -70,12 +76,13 @@ jobs:
       id-token: write # to enable use of OIDC for npm provenance
     steps:
       - name: 📂 Checkout
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: 🛠️ Setup
-        uses: ./.github/actions/setup
+        uses: $/.github/actions/setup
         with:
           node: true
 
